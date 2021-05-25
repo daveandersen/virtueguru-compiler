@@ -24,6 +24,11 @@ export const sendResultToCompiler = (resultObject) => {
     
 }
 
+export const clearCode = async(req,res) => {
+    await Code.deleteMany({});
+    res.json({Code: 'Deleted successfully'})
+}
+
 export const getAllCodes = async (req,res) => {
     try {
         const codes = await Code.find();
